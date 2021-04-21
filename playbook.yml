@@ -1,6 +1,6 @@
 ---
 - name: Install Docker on remote host
-  hosts: centos_remote_a
+  hosts: ubuntu_remote_a
   become: true
   tasks:
     - name: upgrade all packages
@@ -26,7 +26,7 @@
           - iftop
         state: present
     - name: Set up a stable docker repository
-      command: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+      command: yum-config-manager --add-repo https://download.docker.com/linux/ubuntu/docker-ce.repo
     - name: Install docker packages
       yum:
         name:
